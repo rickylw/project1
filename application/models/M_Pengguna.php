@@ -60,7 +60,9 @@ class M_Pengguna extends CI_Model{
         $post = $this->input->post();
         $this->id = $post["id"];
         $this->username = $post["username"];
-        $this->password = $post["password"];
+        $this->password = md5($post["password"]);
+        $this->nomor_telpon = $post["nomorTelpon"];
+        $this->alamat = $post["alamat"];
         return $this->db->update($this->_table, $this, array('id' => $post["id"]));
     }
 

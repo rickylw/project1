@@ -46,27 +46,9 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-2">
-                        <h1 class="h3 mb-0 text-gray-800">Pengguna</h1>
-                        <a class="btn btn-success" href="<?php echo base_url("pengguna/tampilTambah") ?>">Tambah Pengguna</a>
+                        <h1 class="h3 mb-0 text-gray-800">Data Jari</h1>
+                        <a class="btn btn-success" href="<?php echo base_url("pengguna/tampilTambah") ?>">Tambah Data Jari</a>
                     </div>
-
-                    <?php if ($this->session->flashdata('tambah-pengguna-success')): ?>
-                    <div class="alert alert-success" role="alert">
-                        <?php echo $this->session->flashdata('tambah-pengguna-success'); ?>
-                    </div>
-                    <?php elseif ($this->session->flashdata('tambah-pengguna-failed')): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $this->session->flashdata('tambah-pengguna-failed'); ?>
-                    </div>
-                    <?php elseif ($this->session->flashdata('ubah-pengguna-success')): ?>
-                    <div class="alert alert-success" role="alert">
-                        <?php echo $this->session->flashdata('ubah-pengguna-success'); ?>
-                    </div>
-                    <?php elseif ($this->session->flashdata('ubah-pengguna-failed')): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $this->session->flashdata('ubah-pengguna-failed'); ?>
-                    </div>
-                    <?php endif; ?>
 
                     <!-- Content Row -->
                     <div class="row">
@@ -76,31 +58,16 @@
                                 <thead>
                                     <tr>
                                         <th width="10%">Id</th>
-                                        <th width="20%">Username</th>
-                                        <th width="30%">Alamat</th>
-                                        <th width="15%">Nomor Telpon</th>
-                                        <th width="15%">Action</th>
+                                        <th width="15%">NIM</th>
+                                        <th width="10%">Nomor Jari</th>
+                                        <th width="20%">Nama</th>
+                                        <th width="10%">Kelas</th>
+                                        <th width="15%">Jurusan</th>
+                                        <th width="10%">Angkatan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($pengguna as $peng): ?>
-                                        <tr>
-                                            <th><?php echo $peng->id ?></th>
-                                            <td><?php echo $peng->username ?></td>
-                                            <td><?php echo $peng->alamat ?></td>
-                                            <td><?php echo $peng->nomor_telpon ?></td>
-                                            <td>
-                                                <div class="row">
-                                                    <form class="col-sm-6 text-center" action="<?php echo base_url('pengguna/tampilUbah/'.$peng->id) ?>" method="POST">
-                                                        <button class="btn btn-primary" type="submit">Ubah</button>
-                                                    </form>
-                                                    <form class="col-sm-6 text-center" action="<?php echo base_url('pengguna/hapus/'.$peng->id) ?>" method="POST">
-                                                        <button class="btn btn-danger" type="submit">Hapus</button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+
                                 </tbody>
                                 </table>
                             </div>

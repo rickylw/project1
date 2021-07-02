@@ -43,15 +43,6 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <?php if ($this->session->flashdata('tambah-pengguna-success')): ?>
-                    <div class="alert alert-success" role="alert">
-                        <?php echo $this->session->flashdata('tambah-pengguna-success'); ?>
-                    </div>
-                    <?php elseif ($this->session->flashdata('tambah-pengguna-failed')): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $this->session->flashdata('tambah-pengguna-failed'); ?>
-                    </div>
-                    <?php endif; ?>
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Tambah Pengguna</h1>

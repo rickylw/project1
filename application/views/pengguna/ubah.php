@@ -45,66 +45,45 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-2">
-                        <h1 class="h3 mb-0 text-gray-800">Pengguna</h1>
-                        <a class="btn btn-success" href="<?php echo base_url("pengguna/tampilTambah") ?>">Tambah Pengguna</a>
-                    </div>
-
-                    <?php if ($this->session->flashdata('tambah-pengguna-success')): ?>
-                    <div class="alert alert-success" role="alert">
-                        <?php echo $this->session->flashdata('tambah-pengguna-success'); ?>
-                    </div>
-                    <?php elseif ($this->session->flashdata('tambah-pengguna-failed')): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $this->session->flashdata('tambah-pengguna-failed'); ?>
-                    </div>
-                    <?php elseif ($this->session->flashdata('ubah-pengguna-success')): ?>
-                    <div class="alert alert-success" role="alert">
-                        <?php echo $this->session->flashdata('ubah-pengguna-success'); ?>
-                    </div>
-                    <?php elseif ($this->session->flashdata('ubah-pengguna-failed')): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $this->session->flashdata('ubah-pengguna-failed'); ?>
-                    </div>
-                    <?php endif; ?>
+                    <h1 class="h3 mb-2 text-gray-800">Ubah Pengguna</h1>
 
                     <!-- Content Row -->
-                    <div class="row">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th width="10%">Id</th>
-                                        <th width="20%">Username</th>
-                                        <th width="30%">Alamat</th>
-                                        <th width="15%">Nomor Telpon</th>
-                                        <th width="15%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($pengguna as $peng): ?>
-                                        <tr>
-                                            <th><?php echo $peng->id ?></th>
-                                            <td><?php echo $peng->username ?></td>
-                                            <td><?php echo $peng->alamat ?></td>
-                                            <td><?php echo $peng->nomor_telpon ?></td>
-                                            <td>
-                                                <div class="row">
-                                                    <form class="col-sm-6 text-center" action="<?php echo base_url('pengguna/tampilUbah/'.$peng->id) ?>" method="POST">
-                                                        <button class="btn btn-primary" type="submit">Ubah</button>
-                                                    </form>
-                                                    <form class="col-sm-6 text-center" action="<?php echo base_url('pengguna/hapus/'.$peng->id) ?>" method="POST">
-                                                        <button class="btn btn-danger" type="submit">Hapus</button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                                </table>
+                    <div class="col-sm-6 my-3">
+                        <form action="<?php echo base_url('pengguna/ubah') ?>" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" value="<?php echo $pengguna->username; ?>" name="username" id="username">
+                                <?php echo form_error('username'); ?>
                             </div>
-                        </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password">
+                                <?php echo form_error('password'); ?>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="konfirmasiPassword">Konfirmasi Password</label>
+                                <input type="password" class="form-control" name="konfirmasiPassword" id="konfirmasiPassword">
+                                <?php echo form_error('konfirmasiPassword'); ?>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <textarea class="form-control" name="alamat" id="alamat" cols="15" rows="5"><?php echo $pengguna->alamat; ?></textarea>
+                                <?php echo form_error('alamat'); ?>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nomorTelpon">Nomor Telepon</label>
+                                <input type="text" class="form-control" value="<?php echo $pengguna->nomor_telpon; ?>" name="nomorTelpon" id="nomorTelpon">
+                                <?php echo form_error('nomorTelpon'); ?>
+                            </div>
+
+                            <input type="hidden" value="<?php echo $pengguna->id; ?>" name="id" id="id">
+
+                            <button type="submit" class="btn btn-primary float-right m-1">Simpan</button>
+                        </form>
                     </div>
 
                 </div>

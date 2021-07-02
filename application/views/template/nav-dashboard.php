@@ -41,6 +41,21 @@
         </div>
     </li>
 
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDataJari"
+            aria-expanded="true" aria-controls="collapseDataJari">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Master Data Jari</span>
+        </a>
+        <div id="collapseDataJari" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Menu Data Jari:</h6>
+                <a class="collapse-item" href="<?php echo base_url('datajari') ?>">Data Jari</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

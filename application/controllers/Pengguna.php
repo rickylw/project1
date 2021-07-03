@@ -26,14 +26,18 @@ class Pengguna extends CI_Controller {
 		$validation->set_rules($pengguna->rules());
 
 		if($validation->run()){
-			$pengguna->save();
-			$this->session->set_flashdata('tambah-pengguna-success', 'Data berhasil disimpan');
+			if($pengguna->save()){
+				$this->session->set_flashdata('tambah-pengguna-success', 'Data berhasil disimpan');
+			}
+			else{
+				$this->session->set_flashdata('tambah-pengguna-failed', 'Data gagal disimpan');
+			}
+			redirect('pengguna/index');	
 		}
 		else{
-			$this->session->set_flashdata('tambah-pengguna-failed', 'Data gagal disimpan');
+			$this->load->view('pengguna/tambah');
 		}
 
-		redirect('pengguna/index');
 	}
 
 	public function tampilUbah($id){
@@ -47,14 +51,20 @@ class Pengguna extends CI_Controller {
 		$validation->set_rules($pengguna->rules());
 
 		if($validation->run()){
-			$pengguna->update();
-			$this->session->set_flashdata('ubah-pengguna-success', 'Data berhasil diubah');
+			if($pengguna->update()){
+				$this->session->set_flashdata('ubah-pengguna-success', 'Data berhasil diubah');
+			}
+			else{
+				$this->session->set_flashdata('ubah-pengguna-failed', 'Data gagal diubah');
+			}
+			redirect('pengguna/index');
+			
 		}
 		else{
 			$this->session->set_flashdata('ubah-pengguna-failed', 'Data gagal diubah');
+			redirect('pengguna/index');
 		}
 
-		redirect('pengguna/index');
 	}
 
 	public function hapus($id){

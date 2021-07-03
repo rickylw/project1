@@ -66,6 +66,14 @@
                     <div class="alert alert-danger" role="alert">
                         <?php echo $this->session->flashdata('ubah-pengguna-failed'); ?>
                     </div>
+                    <?php elseif ($this->session->flashdata('hapus-pengguna-success')): ?>
+                    <div class="alert alert-success" role="alert">
+                        <?php echo $this->session->flashdata('hapus-pengguna-success'); ?>
+                    </div>
+                    <?php elseif ($this->session->flashdata('hapus-pengguna-failed')): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $this->session->flashdata('hapus-pengguna-failed'); ?>
+                    </div>
                     <?php endif; ?>
 
                     <!-- Content Row -->

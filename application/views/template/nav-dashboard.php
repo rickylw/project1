@@ -56,6 +56,21 @@
         </div>
     </li>
 
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjaman"
+            aria-expanded="true" aria-controls="collapsePeminjaman">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Master Peminjaman</span>
+        </a>
+        <div id="collapsePeminjaman" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Menu Peminjaman:</h6>
+                <a class="collapse-item" href="<?php echo base_url('peminjaman') ?>">Peminjaman</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

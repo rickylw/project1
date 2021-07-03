@@ -46,33 +46,37 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-2">
-                        <h1 class="h3 mb-0 text-gray-800">Data Jari</h1>
-                        <a class="btn btn-success" href="<?php echo base_url("datajari/tampilTambah") ?>">Tambah Data Jari</a>
+                        <h1 class="h3 col-sm-8 mb-0 text-gray-800">Data Peminjaman</h1>
+                        <div class="row col-sm-4">
+                            <a class="btn btn-primary col-sm-3 text-center" href="<?php echo base_url("peminjaman/tampilTambah") ?>">Excel</a>
+                            <a class="btn btn-danger col-sm-2 text-center" href="<?php echo base_url("peminjaman/tampilTambah") ?>">PDF</a>
+                            <a class="btn btn-success col-sm-7 text-center" href="<?php echo base_url("peminjaman/tampilTambah") ?>">Tambah Peminjaman</a>
+                        </div>
                     </div>
 
-                    <?php if ($this->session->flashdata('tambah-datajari-success')): ?>
+                    <?php if ($this->session->flashdata('tambah-peminjaman-success')): ?>
                     <div class="alert alert-success" role="alert">
-                        <?php echo $this->session->flashdata('tambah-datajari-success'); ?>
+                        <?php echo $this->session->flashdata('tambah-peminjaman-success'); ?>
                     </div>
-                    <?php elseif ($this->session->flashdata('tambah-datajari-failed')): ?>
+                    <?php elseif ($this->session->flashdata('tambah-peminjaman-failed')): ?>
                     <div class="alert alert-danger" role="alert">
-                        <?php echo $this->session->flashdata('tambah-datajari-failed'); ?>
+                        <?php echo $this->session->flashdata('tambah-peminjaman-failed'); ?>
                     </div>
-                    <?php elseif ($this->session->flashdata('ubah-datajari-success')): ?>
+                    <?php elseif ($this->session->flashdata('ubah-peminjaman-success')): ?>
                     <div class="alert alert-success" role="alert">
-                        <?php echo $this->session->flashdata('ubah-datajari-success'); ?>
+                        <?php echo $this->session->flashdata('ubah-peminjaman-success'); ?>
                     </div>
-                    <?php elseif ($this->session->flashdata('ubah-datajari-failed')): ?>
+                    <?php elseif ($this->session->flashdata('ubah-peminjaman-failed')): ?>
                     <div class="alert alert-danger" role="alert">
-                        <?php echo $this->session->flashdata('ubah-datajari-failed'); ?>
+                        <?php echo $this->session->flashdata('ubah-peminjaman-failed'); ?>
                     </div>
-                    <?php elseif ($this->session->flashdata('hapus-datajari-success')): ?>
+                    <?php elseif ($this->session->flashdata('hapus-peminjaman-success')): ?>
                     <div class="alert alert-success" role="alert">
-                        <?php echo $this->session->flashdata('hapus-datajari-success'); ?>
+                        <?php echo $this->session->flashdata('hapus-peminjaman-success'); ?>
                     </div>
-                    <?php elseif ($this->session->flashdata('hapus-datajari-failed')): ?>
+                    <?php elseif ($this->session->flashdata('hapus-peminjaman-failed')): ?>
                     <div class="alert alert-danger" role="alert">
-                        <?php echo $this->session->flashdata('hapus-datajari-failed'); ?>
+                        <?php echo $this->session->flashdata('hapus-peminjaman-failed'); ?>
                     </div>
                     <?php endif; ?>
 
@@ -84,31 +88,27 @@
                                 <thead>
                                     <tr>
                                         <th width="10%">Id</th>
-                                        <th width="15%">NIM</th>
                                         <th width="10%">Nomor Jari</th>
-                                        <th width="15%">Nama</th>
-                                        <th width="10%">Kelas</th>
-                                        <th width="15%">Jurusan</th>
-                                        <th width="10%">Angkatan</th>
+                                        <th width="15%">Ruangan</th>
+                                        <th width="25%">Waktu Masuk</th>
+                                        <th width="25%">Waktu Keluar</th>
                                         <th width="15%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($datajari as $dataj): ?>
+                                    <?php foreach($peminjaman as $pinjam): ?>
                                         <tr>
-                                            <th><?php echo $dataj->id ?></th>
-                                            <td><?php echo $dataj->nim ?></td>
-                                            <td><?php echo $dataj->nomor_jari ?></td>
-                                            <td><?php echo $dataj->nama ?></td>
-                                            <td><?php echo $dataj->kelas ?></td>
-                                            <td><?php echo $dataj->jurusan ?></td>
-                                            <td><?php echo $dataj->angkatan ?></td>
+                                            <th><?php echo $pinjam->id ?></th>
+                                            <td><?php echo $pinjam->nomor_jari ?></td>
+                                            <td><?php echo $pinjam->ruangan ?></td>
+                                            <td><?php echo $pinjam->waktu_masuk ?></td>
+                                            <td><?php echo $pinjam->waktu_keluar ?></td>
                                             <td>
                                                 <div class="row">
-                                                    <form class="col-sm-6 text-center" action="<?php echo base_url('datajari/tampilUbah/'.$dataj->id) ?>" method="POST">
+                                                    <form class="col-sm-6 text-center" action="<?php echo base_url('peminjaman/tampilUbah/'.$pinjam->id) ?>" method="POST">
                                                         <button class="btn btn-primary" type="submit">Ubah</button>
                                                     </form>
-                                                    <form class="col-sm-6 text-center" action="<?php echo base_url('datajari/hapus/'.$dataj->id) ?>" method="POST">
+                                                    <form class="col-sm-6 text-center" action="<?php echo base_url('peminjaman/hapus/'.$pinjam->id) ?>" method="POST">
                                                         <button class="btn btn-danger" type="submit">Hapus</button>
                                                     </form>
                                                 </div>

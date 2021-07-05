@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Peminjaman extends CI_Model{
-    public $_table = "peminjaman";
+    private $_table = "peminjaman";
 
     public $id;
     public $nomor_jari;
@@ -22,6 +22,10 @@ class M_Peminjaman extends CI_Model{
                 'rules' => 'required'
             ]
         ];
+    }
+
+    public function getTable(){
+        return $this->_table;
     }
 
     public function now(){

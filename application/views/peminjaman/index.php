@@ -48,8 +48,8 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-2">
                         <h1 class="h3 col-sm-8 mb-0 text-gray-800">Data Peminjaman</h1>
                         <div class="row col-sm-4">
-                            <a class="btn btn-primary col-sm-3 text-center" href="<?php echo base_url("peminjaman/tampilTambah") ?>">Excel</a>
-                            <a class="btn btn-danger col-sm-2 text-center" href="<?php echo base_url("peminjaman/tampilTambah") ?>">PDF</a>
+                            <a class="btn btn-primary col-sm-3 text-center" href="<?php echo base_url("peminjaman/exportExcel") ?>">Excel</a>
+                            <a class="btn btn-danger col-sm-2 text-center" href="<?php echo base_url("peminjaman/exportPDF") ?>">PDF</a>
                             <a class="btn btn-success col-sm-7 text-center" href="<?php echo base_url("peminjaman/tampilTambah") ?>">Tambah Peminjaman</a>
                         </div>
                     </div>

@@ -43,7 +43,7 @@ class Api extends CI_Controller {
 		if($pinjam !== null){
 			if($pinjam->waktu_keluar !== null){
 				$pinjam->waktu_keluar = $peminjaman->now();
-				if($peminjaman->db->update($peminjaman->_table, $pinjam, array('id' => $id))){
+				if($peminjaman->db->update($peminjaman->getTable(), $pinjam, array('id' => $id))){
 					$data = [
 						'id' => $id,
 						'ruangan' => $pinjam->ruangan

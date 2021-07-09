@@ -69,6 +69,10 @@ class M_Pengguna extends CI_Model{
     public function delete($id){
         return $this->db->delete($this->_table, array("id" => $id));
     }
+
+    public function login($data){
+        return $this->db->get_where($this->_table, $data);
+    }
 }
 
 ?>

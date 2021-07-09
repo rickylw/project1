@@ -38,11 +38,10 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php $this->load->view("template/nav-topbar"); ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid mt-4">
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Ubah Data Jari</h1>

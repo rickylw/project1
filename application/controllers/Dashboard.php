@@ -9,10 +9,13 @@ class Dashboard extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			redirect(base_url("/"));
 		}
+		$this->load->model("M_Peminjaman");
 	}
 
 	public function index()
 	{
-		$this->load->view('dashboard');
+		$peminjaman = $this->M_Peminjaman;
+		$data["ruangan"] = $peminjaman->getGroupedRoom();
+		$this->load->view('dashboard', $data);
 	}
 }

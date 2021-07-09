@@ -38,11 +38,10 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php $this->load->view("template/nav-topbar"); ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid mt-4">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -107,6 +106,31 @@
                         </div>
                     </div>
 
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Ruangan</h1>
+                    </div>
+
+                    <div class="row">
+                        <?php foreach($ruangan as $ruang): ?>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-<?php echo ($ruang["waktu_keluar"] == null) ? 'success' : 'danger' ?> shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    <?php echo $ruang["ruangan"] ?></div>
+                                                <div class="h6 mb-0 text-gray-800"><?php echo ($ruang["waktu_keluar"] == null) ? 'Ruangan Bisa Dipakai' : 'Ruangan Sedang Dipakai' ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-door-<?php echo ($ruang["waktu_keluar"] == null) ? 'open' : 'closed' ?> fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 

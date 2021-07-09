@@ -46,7 +46,7 @@ class M_Peminjaman extends CI_Model{
         $this->nomor_jari = $post["nomorJari"];
         $this->ruangan = $post["ruangan"];
 
-        if($this->db->query("select * from peminjaman where ruangan = '".$this->ruangan."'")->num_rows() == 0){
+        if($this->db->query("select * from peminjaman where ruangan = '".$this->ruangan."' and waktu_keluar is null")->num_rows() == 0){
             return $this->db->insert($this->_table, $this);
         }
         else{
@@ -65,6 +65,10 @@ class M_Peminjaman extends CI_Model{
 
     public function delete($id){
         return $this->db->delete($this->_table, array("id" => $id));
+    }
+
+    public function getGroupedRoom(){
+        return $this->db->query("SELECT m1.* FROM peminjaman m1 LEFT JOIN peminjaman m2 ON (m1.ruangan = m2.ruangan AND m1.id < m2.id) WHERE m2.id IS NULL")->result_array();
     }
 }
 

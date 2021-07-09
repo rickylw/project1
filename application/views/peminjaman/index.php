@@ -38,11 +38,10 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php $this->load->view("template/nav-topbar"); ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid mt-4">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-2">
